@@ -9,6 +9,8 @@ import 'package:workouttraker/model/task_model/workoutmodel1.dart';
 import 'package:intl/intl.dart';
 import 'package:workouttraker/sub_screens_wtd/other_sub/edit.dart';
 import 'package:workouttraker/utility/utilitycolor.dart';
+import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 
 
@@ -81,9 +83,18 @@ class _TaskState extends State<Task> {
           valueListenable: workoutListNotifier,
           builder: (BuildContext ctx, List<Workoutmodel> workoutlist,
               Widget? child) {
+                if (workoutlist.isEmpty) {
+              // If the list is empty, display an image
+              return Center(
+                child:Lottie.asset('assets/images/data.json'),
+              );
+            } else {
             return ListView.separated(
                 itemBuilder: (ctx, index) {
+
                   final data = workoutlist[index];
+                
+                  // final diff = data.date.difference(DateTime.now()).inDays;
 
                   return Slidable(
                     endActionPane:
@@ -129,7 +140,9 @@ class _TaskState extends State<Task> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                             //  color: data.isChecked ? Colors.green :Color.fromARGB(255, 207, 198, 198),
-                           color: getBackgroundColor(data.isChecked, data.duration, data.date), 
+                            
+                              color: getBackgroundColor(data.isChecked, data.duration, data.date),
+                          //  color: getContainerColor(data.isChecked, data.duration, diff),
                               border: Border.all(
                                   color: Color.fromARGB(255, 207, 198, 198))),
 
@@ -282,6 +295,7 @@ class _TaskState extends State<Task> {
                   );
                 },
                 itemCount: workoutlist.length);
+            }
           },
         ),
       ),
