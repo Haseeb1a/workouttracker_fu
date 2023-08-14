@@ -14,3 +14,20 @@ void addperson(persondata value) async {
 
   persondataListNotifier.notifyListeners();
 }
+Future<void> getAllperson() async {
+  final workoutDB = await Hive.openBox<persondata>('person_db');
+  persondataListNotifier.value.clear();
+  persondataListNotifier.value.addAll(workoutDB.values);
+  persondataListNotifier.notifyListeners();
+}
+Future<void> deleteTask(int id) async {
+  final workoutDB = await Hive.openBox<persondata>('person_db');
+  await workoutDB.deleteAt(id);
+  getAllperson();
+}
+Future<void> updateperson(int id,  value) async {
+  final studentsDB = await Hive.openBox<persondata>('person_db');
+  // value.isChecked = studentsDB.getAt(id)!.isChecked;
+  await studentsDB.putAt(id, value);
+ getAllperson() ;
+}

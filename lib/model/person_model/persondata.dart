@@ -20,7 +20,7 @@ class persondata {
   String personheight ; 
 
   @HiveField(5)
-  String personImage;
+  String? personImage;
 
   persondata({
   required this.personname,
@@ -28,7 +28,7 @@ class persondata {
   required this.personweight,
   required this.personheight,
   this.id,
-  required this.personImage,
+  this.personImage,
   
   
 });

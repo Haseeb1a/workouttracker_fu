@@ -75,10 +75,10 @@ return;
            appBar: AppBar(backgroundColor: Color.fromARGB(225, 27, 57, 61),),
           body: AlertDialog(
             
-             backgroundColor: Color.fromARGB(224, 255, 255, 255),
+             backgroundColor: const Color.fromARGB(255, 0, 0, 0),
                             title: Text('ADD TASK'),
                             content:
-                             Container(
+                             Container( 
                               height: 380,
                                child: Column(
                                 children: [

@@ -7,6 +7,7 @@ import 'package:workouttraker/function/db_functions/db_person.dart';
 import 'package:workouttraker/model/person_model/persondata.dart';
 import 'package:workouttraker/model/task_model/workoutmodel1.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:workouttraker/sub_screens_wtd/other_sub/profileedit.dart';
 // import 'package:workouttraker/dbfunction/model/workoutmodel.dart';
 // import 'package:workouttraker/dbfunction/model/workoutmodel1.dart';
 
@@ -144,7 +145,17 @@ class _ProfileState extends State<Profile> {
             title: Center(
               child: Text('Profile'),
             ),
-            actions: [IconButton(onPressed:(){}, icon: Icon(Icons.edit),color:Colors.white ,iconSize: 25,)],
+            actions: [IconButton(onPressed:(){
+              Navigator.push(context, MaterialPageRoute(builder:(context) => Profileedit(personname: data.personname, personage: data.personage, personheight: data.personheight, index:0 , personweight: data.personweight,
+              //  personImage:data.personImage
+                )
+              // Updateper(typename: data.personname, weight:data.personage, height: data.personheight, image: data.personImage, 
+              //             // isChecked: false,
+              //             // date: data.date!, duration: data.duration,
+              //             //  index: index,
+              //             ),
+                          ));
+            }, icon: Icon(Icons.edit),color:Colors.white ,iconSize: 25,)],
           ),
           body: Center(
             child: Card(
@@ -176,8 +187,8 @@ class _ProfileState extends State<Profile> {
                     width: screenWidth * 0.47,
                     height: screenHeight * 0.52,
                     child: Card(
-                      elevation: 10,
-                      color: Color.fromARGB(255, 103, 109, 75),
+                      // elevation: 10,
+                      color: Color.fromARGB(31, 14, 8, 25),
                       child: Column(
                         children: [
                            GestureDetector(
@@ -204,19 +215,23 @@ class _ProfileState extends State<Profile> {
                         ),
                 ),
               ),
-                          Center(
-                            child: Text(
-                              '''
+                          Card(
+                            
+                            color: Color.fromARGB(255, 255, 252, 202),
+                            child: Center(
+                              child: Text(
+                                '''
 Name: ${data.personname}
 Age: ${data.personage}
 Weight: ${data.personweight}
 Height: ${data.personheight}
-                              ''',
-                              style: GoogleFonts.alegreyaSc(
-                                fontSize: 27,
-                                color: Colors.white,
+                                ''',
+                                style: GoogleFonts.alegreyaSc(
+                                  fontSize: 27,
+                                  color: Colors.black,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                              textAlign: TextAlign.center,
                             ),
                           ),
                         ],

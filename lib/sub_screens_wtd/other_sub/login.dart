@@ -147,6 +147,7 @@ import 'package:flutter/material.dart';
 import 'package:workouttraker/main_wgts/bottom_main.dart';
 import 'package:workouttraker/model/person_model/persondata.dart';
 import '../../function/db_functions/db_person.dart';
+import 'package:flutter/services.dart';
 
 class LoginScreen extends StatelessWidget {
   final _nameController = TextEditingController();
@@ -215,8 +216,12 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
                     TextField(
+                       maxLength: 3,
+                                  // maxLengthEnforcement: true,
+                                  inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                       controller: _personheightController,
                       decoration: InputDecoration(
+                         counterText: '',
                         hintText: 'Height',
                         filled: true,
                         fillColor: const Color.fromARGB(255, 255, 255, 255),
@@ -228,8 +233,12 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
                     TextField(
+                         maxLength: 3,
+                                  // maxLengthEnforcement: true,
+                                  inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                       controller: _personweightController,
                       decoration: InputDecoration(
+                         counterText: '',
                         hintText: 'Weight',
                         filled: true,
                         fillColor: const Color.fromARGB(255, 255, 255, 255),
@@ -241,8 +250,12 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
                     TextField(
+                         maxLength: 3,
+                                  // maxLengthEnforcement: true,
+                                  inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                       controller: _personageController,
                       decoration: InputDecoration(
+                         counterText: '',
                         hintText: 'Age',
                         filled: true,
                         fillColor: const Color.fromARGB(255, 255, 255, 255),
