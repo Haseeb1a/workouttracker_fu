@@ -22,7 +22,7 @@ class persondataAdapter extends TypeAdapter<persondata> {
       personweight: fields[3] as String,
       personheight: fields[4] as String,
       id: fields[0] as int?,
-      personImage: fields[5] as String,
+      personImage: fields[5] as String?,
     );
   }
 

@@ -24,6 +24,7 @@ class WorkoutmodelAdapter extends TypeAdapter<Workoutmodel> {
       id: fields[0] as int?,
       date: fields[5] as DateTime,
       duration: fields[6] as String,
+      // isChecked: fields[7]as bool,
     );
   }
 
@@ -44,7 +45,9 @@ class WorkoutmodelAdapter extends TypeAdapter<Workoutmodel> {
       ..writeByte(5)
       ..write(obj.date)
       ..writeByte(6)
-      ..write(obj.duration);
+      ..write(obj.duration)
+      ..writeByte(7)
+      ..write(obj.isChecked);
   }
 
   @override

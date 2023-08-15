@@ -176,6 +176,8 @@ class _ProfileState extends State<Profile> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(30.0),
                           child: Image.asset('assets/images/full body.png'),
+                          // child: ,
+                          
                         ),
                       ),
                     ],
@@ -188,7 +190,7 @@ class _ProfileState extends State<Profile> {
                     height: screenHeight * 0.52,
                     child: Card(
                       // elevation: 10,
-                      color: Color.fromARGB(31, 14, 8, 25),
+                      color:  Color.fromARGB(255, 255, 252, 202),
                       child: Column(
                         children: [
                            GestureDetector(
@@ -197,7 +199,11 @@ class _ProfileState extends State<Profile> {
                   width: 105,
                   height: 105,
                   decoration: BoxDecoration(
-                    border: Border.all(width: 7,color: Color.fromARGB(255, 5, 35, 29)),
+                    border: Border.all(width: 7,
+                    color: 
+                    Color.fromARGB(255, 5, 35, 29)
+                    //  Color.fromARGB(255, 255, 252, 202)
+                    ),
                     shape: BoxShape.circle,
                     color: Colors.grey[300],
                   ),

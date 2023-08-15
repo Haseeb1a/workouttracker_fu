@@ -446,7 +446,8 @@ class _UpdateScreenState extends State<UpdateScreen> {
                 reps: _repsController.text,
                 date: DateTime.parse(_dateController.text),
                 duration: _dropdownController.text,
-                // isChecked: isChecked, 
+                // isChecked: widget.isChecked,
+               // isChecked: isChecked, 
               );
 
               updateTask(widget.index, studentmodel);

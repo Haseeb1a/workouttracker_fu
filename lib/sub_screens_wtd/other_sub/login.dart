@@ -188,102 +188,106 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       backgroundColor: Color.fromARGB(225, 27, 57, 61),
-      body: Center(
-        child: Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SizedBox(height: 8),
-                    TextField(
-                      controller: _nameController,
-                      decoration: InputDecoration(
-                        hintText: 'Name',
-                        filled: true,
-                        fillColor: const Color.fromARGB(255, 255, 255, 255),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15),
+      body: SafeArea(
+        child: Center(
+          child: Container(
+            alignment: Alignment.center,
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SizedBox(height: 8),
+                      TextField(
+                        controller: _nameController,
+                        decoration: InputDecoration(
+                          hintText: 'Name',
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 255, 255, 255),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    TextField(
-                       maxLength: 3,
-                                  // maxLengthEnforcement: true,
-                                  inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
-                      controller: _personheightController,
-                      decoration: InputDecoration(
-                         counterText: '',
-                        hintText: 'Height',
-                        filled: true,
-                        fillColor: const Color.fromARGB(255, 255, 255, 255),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    TextField(
+                      SizedBox(height: 20),
+                      TextField(
                          maxLength: 3,
-                                  // maxLengthEnforcement: true,
-                                  inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
-                      controller: _personweightController,
-                      decoration: InputDecoration(
-                         counterText: '',
-                        hintText: 'Weight',
-                        filled: true,
-                        fillColor: const Color.fromARGB(255, 255, 255, 255),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15),
+                                    // maxLengthEnforcement: true,
+                                    inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                        controller: _personheightController,
+                        decoration: InputDecoration(
+                           counterText: '',
+                          hintText: 'Height',
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 255, 255, 255),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    TextField(
-                         maxLength: 3,
-                                  // maxLengthEnforcement: true,
-                                  inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
-                      controller: _personageController,
-                      decoration: InputDecoration(
-                         counterText: '',
-                        hintText: 'Age',
-                        filled: true,
-                        fillColor: const Color.fromARGB(255, 255, 255, 255),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(15),
+                      SizedBox(height: 20),
+                      TextField(
+                           maxLength: 3,
+                                    // maxLengthEnforcement: true,
+                                    inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                        controller: _personweightController,
+                        decoration: InputDecoration(
+                           counterText: '',
+                          hintText: 'Weight',
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 255, 255, 255),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    SizedBox(
-                      width: 250,
-                      height: 40,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          onAddtaskButtonPressed(context);
-                        },
-                        child: Text('Submit'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black,
-                          shape: StadiumBorder(),
+                      SizedBox(height: 20),
+                      TextField(
+                           maxLength: 3,
+                                    // maxLengthEnforcement: true,
+                                    inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                        controller: _personageController,
+                        decoration: InputDecoration(
+                           counterText: '',
+                          hintText: 'Age',
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 255, 255, 255),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                      SizedBox(height: 20),
+                      SizedBox(
+                        width: 250,
+                        height: 40,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            onAddtaskButtonPressed(context);
+                          },
+                          child: Text('Submit'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.black,
+                            shape: StadiumBorder(),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

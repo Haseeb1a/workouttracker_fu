@@ -13,6 +13,7 @@ import 'package:workouttraker/sub_screens_wtd/exercises/shoulders.dart';
 import 'package:workouttraker/sub_screens_wtd/exercises/triceps.dart';
 
 
+
 class HomeEx extends StatefulWidget {
   const HomeEx({super.key});
 
@@ -37,7 +38,9 @@ class _HomeExState extends State<HomeEx> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Color.fromARGB(225, 27, 57, 61),),
+      appBar: AppBar(
+     
+        backgroundColor: Color.fromARGB(225, 27, 57, 61),),
       body: SafeArea(
         
           child: Column(

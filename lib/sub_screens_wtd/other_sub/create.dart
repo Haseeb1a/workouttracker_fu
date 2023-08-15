@@ -56,6 +56,7 @@ return;
   }
   final _task =Workoutmodel(typename: _typename, weight: _weight, reps: _reps, sets: _sets,date: _date,
   duration:_duration,
+  // isChecked: false,
   // personname: '',
   // personheight: '',
   // personweight: '',
@@ -64,7 +65,7 @@ return;
   print('$_typename $_weight');
   print('$_date$_duration' );
    addTask(_task);
-
+  
 }
   
 

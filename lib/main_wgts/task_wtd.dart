@@ -159,25 +159,25 @@ class _TaskState extends State<Task> {
                                       style: TextStyle(
                                           fontSize: screenWidth * 0.06),
                                     ),
-                                    Checkbox(
-                                        value: data.isChecked,
-  onChanged: (bool? newvalue) {
+  //                                   Checkbox(
+  //                                       value: data.isChecked,
+  // onChanged: (bool? newvalue) {
+  //   setState(() {
+  //     data.isChecked = newvalue!;
+  //   });
+  // },
+                                        // )
+ Checkbox(
+  value: data.isChecked,
+  onChanged: (bool? newValue) {
     setState(() {
-      data.isChecked = newvalue!;
+      data.isChecked = newValue ?? true; // Ensure null safety
     });
-  },
-                                        )
-//  Checkbox(
-//   value: data.isChecked,
-//   onChanged: (bool? newValue) {
-//     setState(() {
-//       data.isChecked = newValue ?? true; // Ensure null safety
-//     });
     
-//     // Update the checkbox state in Hive
-//     updateTask(index, data);
-//   },
-// )
+    // Update the checkbox state in Hive
+    updateTask(index, data);
+  },
+)
                                   ],
                                 ),
                               ),

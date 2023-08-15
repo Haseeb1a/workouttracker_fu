@@ -132,7 +132,7 @@ Color getBackgroundColor(bool isChecked, String duration, DateTime date) {
   } 
    else if (duration == 'Week') {
     if (diff >= 0 && diff <= 6) {
-      return Colors.red; // Change color for workouts within a week (excluding today)
+      return Color.fromARGB(255, 207, 198, 198); // Change color for workouts within a week (excluding today)
     } else if (date.isBefore(now.add(const Duration(days: 7))) &&
                date.isAfter(now)) {
       return Colors.red; // Change color for workouts within the next 7 days, excluding today
@@ -146,7 +146,7 @@ Color getBackgroundColor(bool isChecked, String duration, DateTime date) {
       return Colors.red; // Change color for workouts within a month (including today)
     }
     if (diff >= 0 && diff <= 30) {
-      return diff == 0 ? Colors.green : Colors.red; // Change color for workouts within a month
+      return diff == 0 ?Color.fromARGB(255, 207, 198, 198): Color.fromARGB(255, 207, 198, 198); // Change color for workouts within a month
     }
   }
 
@@ -189,31 +189,32 @@ Color getBackgroundColor(bool isChecked, String duration, DateTime date) {
 
 //   return Color.fromARGB(255, 207, 198, 198); // Default color
 // }
- Color getContainerColor(bool isChecked, String duration, int diff) {
-    if (isChecked) {
-      return Colors.green;
-    }
+// ----------------------------------------------------------
+//  Color getContainerColor(bool isChecked, String duration, int diff) {
+//     if (isChecked) {
+//       return Colors.green;
+//     }
 
-    if (diff <= 0 && diff >= -1) {
-      return Colors.red; // Red for today or past workouts
-    }
+//     if (diff <= 0 && diff >= -1) {
+//       return Colors.red; // Red for today or past workouts
+//     }
 
-    if (duration == 'Day' && diff == 1) {
-      return Colors.red;
-      // Red for upcoming workout within a day
+//     if (duration == 'Day' && diff == 1) {
+//       return Colors.red;
+//       // Red for upcoming workout within a day
       
-    }
+//     }
 
-    if (duration == 'Week' && diff >= 0 && diff <= 6) {
-      return Colors.red; // Red for workouts within a week (excluding today)
-    }
+//     if (duration == 'Week' && diff >= 0 && diff <= 6) {
+//       return Colors.red; // Red for workouts within a week (excluding today)
+//     }
 
-    if (duration == 'Month' && diff >= 0 && diff <= 30) {
-      return Colors.red; // Red for workouts within a month
-    }
+//     if (duration == 'Month' && diff >= 0 && diff <= 30) {
+//       return Colors.red; // Red for workouts within a month
+//     }
 
-    return Color.fromARGB(255, 207, 198, 198); // Default color
-  }
+//     return Color.fromARGB(255, 207, 198, 198); // Default color
+//   }
 
 
 
