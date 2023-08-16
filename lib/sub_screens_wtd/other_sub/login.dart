@@ -150,11 +150,20 @@ import '../../function/db_functions/db_person.dart';
 import 'package:flutter/services.dart';
 
 class LoginScreen extends StatelessWidget {
+  
+   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _personheightController = TextEditingController();
   final _personweightController = TextEditingController();
   final _personageController = TextEditingController();
   final _personImageController = TextEditingController();
+  
+  String? _validateTextField(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'This field is required';
+    }
+    return null;
+  }
 
   Future<void> onAddtaskButtonPressed(BuildContext context) async {
     final _personname = _nameController.text.trim();
@@ -195,98 +204,111 @@ class LoginScreen extends StatelessWidget {
           child: Container(
             alignment: Alignment.center,
             width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      SizedBox(height: 8),
-                      TextField(
-                        controller: _nameController,
-                        decoration: InputDecoration(
-                          hintText: 'Name',
-                          filled: true,
-                          fillColor: const Color.fromARGB(255, 255, 255, 255),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(15),
+            child: Form(
+              key: _formKey, 
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SizedBox(height: 8),
+                        TextFormField(
+                          controller: _nameController,
+                          decoration: InputDecoration(
+                            hintText: 'Name',
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 255, 255, 255),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(15),
+                              
+                            ),
+                            
                           ),
+                            validator: _validateTextField,
                         ),
-                      ),
-                      SizedBox(height: 20),
-                      TextField(
-                         maxLength: 3,
-                                    // maxLengthEnforcement: true,
-                                    inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
-                        controller: _personheightController,
-                        decoration: InputDecoration(
-                           counterText: '',
-                          hintText: 'Height',
-                          filled: true,
-                          fillColor: const Color.fromARGB(255, 255, 255, 255),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      TextField(
+                        SizedBox(height: 20),
+                        TextFormField(
                            maxLength: 3,
-                                    // maxLengthEnforcement: true,
-                                    inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
-                        controller: _personweightController,
-                        decoration: InputDecoration(
-                           counterText: '',
-                          hintText: 'Weight',
-                          filled: true,
-                          fillColor: const Color.fromARGB(255, 255, 255, 255),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(15),
+                                      // maxLengthEnforcement: true,
+                                      inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                          controller: _personheightController,
+                          decoration: InputDecoration(
+                             counterText: '',
+                            hintText: 'Height',
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 255, 255, 255),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                           validator: _validateTextField,
+                        ),
+                        SizedBox(height: 20),
+                        TextFormField(
+                             maxLength: 3,
+                                      // maxLengthEnforcement: true,
+                                      inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                          controller: _personweightController,
+                          decoration: InputDecoration(
+                             counterText: '',
+                            hintText: 'Weight',
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 255, 255, 255),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                           validator: _validateTextField,
+                        ),
+                        SizedBox(height: 20),
+                        TextFormField(
+                             maxLength: 3,
+                                      // maxLengthEnforcement: true,
+                                      inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                          controller: _personageController,
+                          decoration: InputDecoration(
+                             counterText: '',
+                            hintText: 'Age',
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 255, 255, 255),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            
+                          ),
+                         validator: _validateTextField,  
+                        ),
+                        SizedBox(height: 20),
+                        SizedBox(
+                          width: 250,
+                          height: 40,
+                          child: ElevatedButton(
+                            onPressed: () {
+                               if (_formKey.currentState!.validate()) {
+                                // Form is valid, proceed with logic
+                                onAddtaskButtonPressed(context);
+                              }
+                            },
+                            child: Text('Submit'),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.black,
+                              shape: StadiumBorder(),
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(height: 20),
-                      TextField(
-                           maxLength: 3,
-                                    // maxLengthEnforcement: true,
-                                    inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
-                        controller: _personageController,
-                        decoration: InputDecoration(
-                           counterText: '',
-                          hintText: 'Age',
-                          filled: true,
-                          fillColor: const Color.fromARGB(255, 255, 255, 255),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      SizedBox(
-                        width: 250,
-                        height: 40,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            onAddtaskButtonPressed(context);
-                          },
-                          child: Text('Submit'),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black,
-                            shape: StadiumBorder(),
-                          ),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

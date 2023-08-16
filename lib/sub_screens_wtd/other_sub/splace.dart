@@ -42,6 +42,7 @@ class _SplaceScreenState extends State<SplaceScreen> {
             children: [
               SizedBox(
                 height: screenHeight * 0.4,
+                // width:  screenHeight * 0.8,
                 child: Image.asset(
                   'assets/images/fitfolio-logo (1).png',
                   fit: BoxFit.fill,

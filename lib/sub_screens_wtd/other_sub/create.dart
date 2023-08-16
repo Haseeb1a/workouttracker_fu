@@ -73,14 +73,15 @@ return;
   Widget build(BuildContext context) {
     return
         Scaffold(
-           appBar: AppBar(backgroundColor: Color.fromARGB(225, 27, 57, 61),),
+           appBar: AppBar(backgroundColor: Color.fromARGB(225, 27, 57, 61),
+           title: Text('addTask'),),
           body: AlertDialog(
             
              backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-                            title: Text('ADD TASK'),
+                            // title: Text('ADD TASK'),
                             content:
                              Container( 
-                              height: 380,
+                              height: 400,
                                child: Column(
                                 children: [
                                  TextFormField(

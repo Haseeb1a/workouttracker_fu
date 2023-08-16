@@ -78,52 +78,55 @@ class _HomeExState extends State<HomeEx> {
 
           Expanded(
             
-            child: ListView.separated(
-              
-              itemCount: listof.length,
-              separatorBuilder: (BuildContext context, int index) =>
-                  const Divider(),
-              itemBuilder: (BuildContext context, int index) {
-                     final ListModel itemData = listof[index];
-              return Padding(
-                padding: const EdgeInsets.all(1.0),
-                child: Column(
-                  children: [
-                    ListTile(
-                      leading:
-                      CircleAvatar(
-                         radius: 25,
-            backgroundImage: AssetImage(itemData.images,),
+            child: Padding(
+              padding: EdgeInsets.only(top: 10),
+              child: ListView.separated(
+                
+                itemCount: listof.length,
+                separatorBuilder: (BuildContext context, int index) =>
+                    const Divider(),
+                itemBuilder: (BuildContext context, int index) {
+                       final ListModel itemData = listof[index];
+                return Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        leading:
+                        CircleAvatar(
+                           radius: 25,
+              backgroundImage: AssetImage(itemData.images,),
+                        ),
+                        //  Icon(
+                        //   itemData.icon,
+                        //   color: Colors.black,
+                        // ),
+                        title: Text(
+                          itemData.name,
+                          style: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.w700),
+                        ),
+                        onTap: () {
+                         _handleItemTap(itemData );
+                        },
                       ),
-                      //  Icon(
-                      //   itemData.icon,
-                      //   color: Colors.black,
-                      // ),
-                      title: Text(
-                        itemData.name,
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.w700),
-                      ),
-                      onTap: () {
-                       _handleItemTap(itemData );
-                      },
-                    ),
-                  
-                  ],
-                ),
-              );
-
-            //     return ListTile(
-
-            //       title: Text('jhk'),
-            //       leading:  CircleAvatar(
-            //   radius: 40,
-            //   // backgroundImage: AssetImage('assets/images/fresh.jpg'),
-            //   backgroundColor: Colors.blue,
-            //     // backgroundImage: AssetImage('assets\images\fresh.jpg'),
-            // ),
-            //     );
-              },
+                    
+                    ],
+                  ),
+                );
+            
+              //     return ListTile(
+            
+              //       title: Text('jhk'),
+              //       leading:  CircleAvatar(
+              //   radius: 40,
+              //   // backgroundImage: AssetImage('assets/images/fresh.jpg'),
+              //   backgroundColor: Colors.blue,
+              //     // backgroundImage: AssetImage('assets\images\fresh.jpg'),
+              // ),
+              //     );
+                },
+              ),
             ),
             
           )

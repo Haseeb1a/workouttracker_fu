@@ -9,8 +9,9 @@ void addperson(persondata value) async {
   final workoutDB = await Hive.openBox<persondata>('person_db');
   final id = await workoutDB.add(value);
   value.id = id;
+  getAllperson();
  persondataListNotifier.value.add(value);
-  // getAllTasks();
+ 
 
   persondataListNotifier.notifyListeners();
 }
@@ -29,5 +30,5 @@ Future<void> updateperson(int id,  value) async {
   final studentsDB = await Hive.openBox<persondata>('person_db');
   // value.isChecked = studentsDB.getAt(id)!.isChecked;
   await studentsDB.putAt(id, value);
- getAllperson() ;
+  getAllperson() ;
 }

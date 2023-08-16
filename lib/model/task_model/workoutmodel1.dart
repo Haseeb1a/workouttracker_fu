@@ -28,6 +28,8 @@ class Workoutmodel {
   @HiveField(7) // Add HiveField for isChecked
   bool isChecked = false;
 
+  //bool isChecked =false
+
   // @HiveField(7)
   // String personname;
 

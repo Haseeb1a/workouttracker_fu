@@ -256,45 +256,47 @@ class Models extends StatelessWidget {
       appBar: AppBar(
          backgroundColor: Color.fromARGB(225, 27, 57, 61),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(height: 40,),
-          Center(
-            child: SizedBox(
-              width: 300, // Adjust the width as needed
-              height:150, // Adjust the height as needed
-              child: Image.asset(
-                mymodel.images,
-                fit: BoxFit.fill,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(height: 40,),
+            Center(
+              child: SizedBox(
+                width: 300, // Adjust the width as needed
+                height:150, // Adjust the height as needed
+                child: Image.asset(
+                  mymodel.images,
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
-          ),
-          Center(
-            child: Text(
-              'Muscle: ${mymodel.Text}',
-              style: GoogleFonts.alegreyaSc(fontSize: 30,fontStyle: FontStyle.italic),
-              // style: TextStyle(fontSize: 20,fontStyle: FontStyle.italic),
+            Center(
+              child: Text(
+                'Muscle: ${mymodel.Text}',
+                style: GoogleFonts.alegreyaSc(fontSize: 30,fontStyle: FontStyle.italic),
+                // style: TextStyle(fontSize: 20,fontStyle: FontStyle.italic),
+              ),
             ),
-          ),
-          SizedBox(height: 20,),
-           Text(
-             ' ${mymodel.Text1}',
-             style: GoogleFonts.acme(fontSize: 20,fontStyle: FontStyle.italic),
-           ),
-           Row(
-
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [FloatingActionButton(onPressed: (){
-               Navigator.push(context, MaterialPageRoute(builder:(context) => Textng(),));
-         
-            },child: Icon(Icons.add),backgroundColor: Colors.black,),
-             SizedBox(width: 15,),]
-            ),
+            SizedBox(height: 20,),
+             Text(
+               ' ${mymodel.Text1}',
+               style: GoogleFonts.acme(fontSize: 20,fontStyle: FontStyle.italic),
+             ),
+             Row(
+      
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [FloatingActionButton(onPressed: (){
+                 Navigator.push(context, MaterialPageRoute(builder:(context) => Textng(),));
            
-          SizedBox(height: 20),
-        ],
+              },child: Icon(Icons.add),backgroundColor: Colors.black,),
+               SizedBox(width: 15,),]
+              ),
+             
+            SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }

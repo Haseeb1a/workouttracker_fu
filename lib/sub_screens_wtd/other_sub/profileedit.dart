@@ -178,7 +178,7 @@ class _ProfileeditState extends State<Profileedit> {
             alignment: Alignment.center,
             width: double.infinity,
             height: double.infinity,
-            color: Color.fromARGB(255, 0, 0, 0),
+            color: Color.fromARGB(255, 255, 251, 174),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -203,7 +203,7 @@ class _ProfileeditState extends State<Profileedit> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 30,
                   ),
                   // TextField #2
                   Padding(
