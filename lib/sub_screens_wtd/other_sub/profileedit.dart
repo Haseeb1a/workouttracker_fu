@@ -128,7 +128,7 @@ class Profileedit extends StatefulWidget {
   final String personage;
   final String personweight;
   final String personheight;
-  // final String personImage;
+  final String? personImage;
   final int index;
   const Profileedit({
     Key? key,
@@ -137,7 +137,7 @@ class Profileedit extends StatefulWidget {
     required this.personheight,
     required this.index,
     required this.personweight,
-    // required this.personImage,
+    this.personImage,
     
   }): super(key: key);
 
@@ -158,6 +158,7 @@ class _ProfileeditState extends State<Profileedit> {
     _wpersonageController.text = widget.personage;
     _personweightController.text = widget.personweight;
     _personheightController.text = widget.personheight;
+    
     // _dateController.text = DateFormat('yyyy-MM-dd').format(widget.date);
     // _dropdownController.text = widget.duration;
     // _isChecked = widget.isChecked;
@@ -178,7 +179,7 @@ class _ProfileeditState extends State<Profileedit> {
             alignment: Alignment.center,
             width: double.infinity,
             height: double.infinity,
-            color: Color.fromARGB(255, 255, 251, 174),
+            color:  Color.fromARGB(255, 255, 252, 202),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -192,6 +193,7 @@ class _ProfileeditState extends State<Profileedit> {
                       // maxLength: 3,
                       // inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                       decoration: InputDecoration(
+                        
                         hintText: 'Name',
                         filled: true,
                         fillColor: const Color.fromARGB(255, 255, 255, 255),
@@ -203,7 +205,7 @@ class _ProfileeditState extends State<Profileedit> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 10,
                   ),
                   // TextField #2
                   Padding(
@@ -214,6 +216,7 @@ class _ProfileeditState extends State<Profileedit> {
                       maxLength: 3,
                       inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                       decoration: InputDecoration(
+                        counterText: '',
                         hintText: 'age',
                         filled: true,
                         fillColor: Color.fromARGB(255, 255, 255, 255),
@@ -224,6 +227,9 @@ class _ProfileeditState extends State<Profileedit> {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                    Padding(
                     padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
                      // Adjust margin values as needed
@@ -232,6 +238,7 @@ class _ProfileeditState extends State<Profileedit> {
                       maxLength: 3,
                       inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                       decoration: InputDecoration(
+                        counterText: '',
                         hintText: 'weight',
                         filled: true,
                         fillColor: Color.fromARGB(255, 255, 255, 255),
@@ -242,6 +249,9 @@ class _ProfileeditState extends State<Profileedit> {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                    Padding(
                     padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
                      // Adjust margin values as needed
@@ -249,6 +259,7 @@ class _ProfileeditState extends State<Profileedit> {
                       maxLength: 3,
                       inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                       decoration: InputDecoration(
+                        counterText: '',
                         hintText: 'Height ',
                         filled: true,
                         fillColor: Color.fromARGB(255, 255, 255, 255),
@@ -258,6 +269,9 @@ class _ProfileeditState extends State<Profileedit> {
                         ),
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 30,
                   ),
                    ElevatedButton(
             onPressed: () {

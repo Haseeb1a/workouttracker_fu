@@ -13,125 +13,140 @@ class Forearms extends StatelessWidget {
       appBar: AppBar(
          backgroundColor: Color.fromARGB(225, 27, 57, 61),
       ),
-      body: Column(
-        children: [
-          // --------------------------------------------------------1
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ModelsPage(
-                    mymodel: Mymodel(
-                      'assets/images/DumbbellWristTwist.jpg',
-                      'Wrist Extensor','''Step 1:Stand with Light Dumbbell in each hand with your arms at your sides, palms facing behind you. Bend your arms to curl the weights up until your forearms are parallel to the floor. This is the starting position.
-Step 2: Rotate your wrists until your palms face the ceiling, then back so your the floor once again. Thats one repetition.
-                      '''
+      body: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Column(
+          children: [
+            // --------------------------------------------------------1
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ModelsPage(
+                      mymodel: Mymodel(
+                        'assets/images/DumbbellWristTwist.jpg',
+                        'Wrist Extensor','''Step 1:Stand with Light Dumbbell in each hand with your arms at your sides, palms facing behind you. Bend your arms to curl the weights up until your forearms are parallel to the floor. This is the starting position.
+      Step 2: Rotate your wrists until your palms face the ceiling, then back so your the floor once again. Thats one repetition.
+                        '''
+                      ),
                     ),
                   ),
-                ),
-              );
-            },
-            child: Container(
-               width: double.infinity,
-                                  height: 70,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                    border: Border.all(
-                                        color: Color.fromARGB(255, 255, 255, 255)),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children:[  CircleAvatar( backgroundImage: AssetImage('assets/images/forearms.jpg') ,radius:35,),
-                                      Text(
-                                      'DumbbellWristTwist',
-                                      style: GoogleFonts.alegreyaSc(fontSize: 30),
-             
-                                    ),]
-                                  )
+                );
+              },
+              child: Container(
+                padding: EdgeInsets.only(left:15,top: 5,bottom: 5),
+                 width: double.infinity,
+                                    height: 70,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      border: Border.all(
+                                          color: Color.fromARGB(255, 255, 255, 255)),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children:[  CircleAvatar( backgroundImage: AssetImage('assets/images/forearms.jpg') ,radius:31,),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                        'DumbbellWristTwist',
+                                        style: GoogleFonts.alegreyaSc(fontSize: 30,color: Colors.white),
+               
+                                      ),]
+                                    )
+              ),
             ),
-          ),
-          // -------------------------------------2
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ModelsPage(
-                    mymodel: Mymodel(
-                      'assets/images/StandingWristCurl.jpg',
-                      'Wrist Extensor ','''Step 1:Grab a barbell behind using an underhand grip while keeping your arms straight. Hang the barbell so that it rests on your extended fingers.
-Step 2:Flex your wrists to raise the barbell up as high as possible   
-Step 3:Reverse the movement to lower the barbell.          
-                      
-                      '''
+            SizedBox(
+                height: 5,
+              ),
+            // -------------------------------------2
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ModelsPage(
+                      mymodel: Mymodel(
+                        'assets/images/StandingWristCurl.jpg',
+                        'Wrist Extensor ','''Step 1:Grab a barbell behind using an underhand grip while keeping your arms straight. Hang the barbell so that it rests on your extended fingers.
+      Step 2:Flex your wrists to raise the barbell up as high as possible   
+      Step 3:Reverse the movement to lower the barbell.          
+                        
+                        '''
+                      ),
                     ),
                   ),
-                ),
-              );
-            },
-            child: Container(
-              width: double.infinity,
-                                  height: 70,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                    border: Border.all(
-                                        color: Color.fromARGB(255, 255, 255, 255)),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children:[  CircleAvatar( backgroundImage: AssetImage('assets/images/forearms.jpg') ,radius:35,),
-                                      Text(
-                                      'StandingWristCurl',
-                                       style: GoogleFonts.alegreyaSc(fontSize: 30),
-             
-                                    ),]
-                                  )
+                );
+              },
+              child: Container(
+                padding: EdgeInsets.only(left:15,top: 5,bottom: 5),
+                width: double.infinity,
+                                    height: 70,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      border: Border.all(
+                                          color: Color.fromARGB(255, 255, 255, 255)),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children:[  CircleAvatar( backgroundImage: AssetImage('assets/images/forearms.jpg') ,radius:31,),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                        'StandingWristCurl',
+                                         style: GoogleFonts.alegreyaSc(fontSize: 30,color: Colors.white),
+               
+                                      ),]
+                                    )
+              ),
             ),
-          ),
-          // -------------------------------------------------3
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ModelsPage(
-                    mymodel: Mymodel(
-                      'assets/images/WristCurls.jpg',
-                      'Wrist Extensor','''Step 1:Sit with your forearms resting on your thighs or on a bench. Take an underhand grip on the bar with your wrists passively extended Inhale and curl your wrist up.
-Step 2:Exhale as you complete the movement.
-
-                      '''
+            SizedBox(
+                height: 5,
+              ),
+            // -------------------------------------------------3
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ModelsPage(
+                      mymodel: Mymodel(
+                        'assets/images/WristCurls.jpg',
+                        'Wrist Extensor','''Step 1:Sit with your forearms resting on your thighs or on a bench. Take an underhand grip on the bar with your wrists passively extended Inhale and curl your wrist up.
+      Step 2:Exhale as you complete the movement.
+      
+                        '''
+                      ),
                     ),
                   ),
-                ),
-              );
-            },
-            child: Container(
-              width: double.infinity,
-                                  height: 70,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                    border: Border.all(
-                                        color: Color.fromARGB(255, 255, 255, 255)),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children:[  CircleAvatar( backgroundImage: AssetImage('assets/images/forearms.jpg') ,radius:35,),
-                                      Text(
-                                      'WristCurls ',
-                                       style: GoogleFonts.alegreyaSc(fontSize: 30),
-             
-                                    ),]
-                                  )
+                );
+              },
+              child: Container(
+                padding: EdgeInsets.only(left:15,top: 5,bottom: 5),
+                width: double.infinity,
+                                    height: 70,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      border: Border.all(
+                                          color: Color.fromARGB(255, 255, 255, 255)),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children:[  CircleAvatar( backgroundImage: AssetImage('assets/images/forearms.jpg') ,radius:31,),
+                                        SizedBox(width: 5,),
+                                        Text(
+                                        'WristCurls ',
+                                         style: GoogleFonts.alegreyaSc(fontSize: 30,color: Colors.white),
+               
+                                      ),]
+                                    )
+              ),
             ),
-          ),
-          // -------------------------------------------------4
-        
-        ],
+            // -------------------------------------------------4
+          
+          ],
+        ),
       ),
     );
   }
@@ -161,45 +176,47 @@ class Models extends StatelessWidget {
       appBar: AppBar(
          backgroundColor: Color.fromARGB(225, 27, 57, 61),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(height: 40,),
-          Center(
-            child: SizedBox(
-              width: 300, // Adjust the width as needed
-              height:150, // Adjust the height as needed
-              child: Image.asset(
-                mymodel.images,
-                fit: BoxFit.fill,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(height: 40,),
+            Center(
+              child: SizedBox(
+                width: 300, // Adjust the width as needed
+                height:150, // Adjust the height as needed
+                child: Image.asset(
+                  mymodel.images,
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
-          ),
-          Center(
-            child: Text(
-              'Muscle: ${mymodel.Text}',
-              style: GoogleFonts.alegreyaSc(fontSize: 30,fontStyle: FontStyle.italic),
-              // style: TextStyle(fontSize: 20,fontStyle: FontStyle.italic),
+            Center(
+              child: Text(
+                'Muscle: ${mymodel.Text}',
+                style: GoogleFonts.alegreyaSc(fontSize: 30,fontStyle: FontStyle.italic),
+                // style: TextStyle(fontSize: 20,fontStyle: FontStyle.italic),
+              ),
             ),
-          ),
-          SizedBox(height: 20,),
-           Text(
-             ' ${mymodel.Text1}',
-             style: GoogleFonts.acme(fontSize: 20,fontStyle: FontStyle.italic),
-           ),
-           Row(
-
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [FloatingActionButton(onPressed: (){
-               Navigator.push(context, MaterialPageRoute(builder:(context) => Textng(),));
-              
-            },child: Icon(Icons.add),backgroundColor: Colors.black,),
-             SizedBox(width: 15,),]
-            ),
-           
-          SizedBox(height: 20),
-        ],
+            SizedBox(height: 20,),
+             Text(
+               ' ${mymodel.Text1}',
+               style: GoogleFonts.acme(fontSize: 20,fontStyle: FontStyle.italic),
+             ),
+             Row(
+      
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [FloatingActionButton(onPressed: (){
+                 Navigator.push(context, MaterialPageRoute(builder:(context) => Textng(),));
+                
+              },child: Icon(Icons.add),backgroundColor: Colors.black,),
+               SizedBox(width: 15,),]
+              ),
+             
+            SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }

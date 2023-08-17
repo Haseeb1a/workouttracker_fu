@@ -384,86 +384,85 @@ class _TaskState extends State<Task> {
           ),
         ],
       ),
-      body: Card(
-        child: Column(
-          children: [
-            Expanded(
-              child: ValueListenableBuilder(
-                valueListenable: workoutListNotifier,
-                builder: (BuildContext ctx, List<Workoutmodel> workoutlist, Widget? child) {
-                  List<Workoutmodel> tasksToDisplay = isSearching ? filteredTasks : workoutlist;
+      body: Column(
+        children: [
+          Expanded(
+            child: ValueListenableBuilder(
+              valueListenable: workoutListNotifier,
+              builder: (BuildContext ctx, List<Workoutmodel> workoutlist, Widget? child) {
+                List<Workoutmodel> tasksToDisplay = isSearching ? filteredTasks : workoutlist;
 
-                  if (tasksToDisplay.isEmpty) {
-                    return Center(
-                      child: Lottie.asset('assets/images/data.json'),
-                    );
-                  } else {
-                    return ListView.separated(
-                      itemBuilder: (ctx, index) {
-                        final data = tasksToDisplay[index];
-                        return Slidable(
-                    endActionPane:
-                        ActionPane(motion: DrawerMotion(), children: [
-                      SlidableAction(
-                        onPressed: (context) {
-                          // if(data.id!=null){
+                if (tasksToDisplay.isEmpty) {
+                  return Center(
+                    child: Lottie.asset('assets/images/data.json'),
+                  );
+                } else {
+                  return ListView.separated(
+                    itemBuilder: (ctx, index) {
+                      final data = tasksToDisplay[index];
+                      return Slidable(
+                  endActionPane:
+                      ActionPane(motion: DrawerMotion(), children: [
+                    SlidableAction(
+                      onPressed: (context) {
+                        // if(data.id!=null){
 
-                          deleteTask(index);
-                          // }else{
-                          //   print('Task id is null');
-                          // }
-                        },
-                        icon: Icons.delete_forever_rounded,
-                        backgroundColor: Color.fromARGB(225, 27, 57, 61),
-                        foregroundColor: Colors.red,
-                      ),
-                      SlidableAction(
+                        deleteTask(index);
+                        // }else{
+                        //   print('Task id is null');
+                        // }
+                      },
+                      icon: Icons.delete_forever_rounded,
+                      backgroundColor: Color.fromARGB(225, 27, 57, 61),
+                      foregroundColor: Colors.red,
+                    ),
+                    SlidableAction(
 
-                        onPressed: (context) {
-                          Navigator.push(context, MaterialPageRoute(builder:(context) => UpdateScreen(typename: data.typename, weight:data.weight, sets: data.reps, reps: data.reps, 
-                          isChecked: false,
-                          date: data.date!, duration: data.duration,
-                           index: index,
-                          ),));
-                        },
+                      onPressed: (context) {
+                        Navigator.push(context, MaterialPageRoute(builder:(context) => UpdateScreen(typename: data.typename, weight:data.weight, sets: data.reps, reps: data.reps, 
+                        isChecked: false,
+                        date: data.date!, duration: data.duration,
+                         index: index,
+                        ),));
+                      },
 
-                        icon: Icons.edit,
-                        backgroundColor: Color.fromARGB(225, 27, 57, 61),
-                        foregroundColor: Color.fromARGB(255, 255, 255, 255),
-                      ),
-                    ]),
-                    child: SizedBox(
-                      height: 220,
-                      width: double.infinity,
-                      child: Card(
-                        elevation: 20,
-                        child: Container(
-                           height: 200,
-                          width: 450,
-                          padding: EdgeInsets.only(right: 20),
+                      icon: Icons.edit,
+                      backgroundColor: Color.fromARGB(225, 27, 57, 61),
+                      foregroundColor: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ]),
+                  child: SizedBox(
+                    height: 220,
+                    width: double.infinity,
+                    child: Card(
+                      elevation: 20,
+                      child: Container(
+                         height: 200,
+                        width: 450,
+                        padding: EdgeInsets.only(right: 20),
 
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            //  color: data.isChecked ? Colors.green :Color.fromARGB(255, 207, 198, 198),
-                            
-                              color: getBackgroundColor(data.isChecked, data.duration, data.date),
-                          //  color: getContainerColor(data.isChecked, data.duration, diff),
-                              border: Border.all(
-                                  color: Color.fromARGB(255, 207, 198, 198))),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                          //  color: data.isChecked ? Colors.green :Color.fromARGB(255, 207, 198, 198),
+                          
+                            color: getBackgroundColor(data.isChecked, data.duration, data.date),
+                        //  color: getContainerColor(data.isChecked, data.duration, diff),
+                            border: Border.all(
+                                color: Color.fromARGB(255, 207, 198, 198))),
 
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(left: 35, top: 20),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      data.typename,
-                                      style: TextStyle(
-                                          fontSize: screenWidth * 0.06),
-                                    ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(left: 35, top: 20),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    data.typename,
+                                    style: TextStyle(
+                                        fontSize: screenWidth * 0.06),
+                                  ),
   //                                   Checkbox(
   //                                       value: data.isChecked,
   // onChanged: (bool? newvalue) {
@@ -471,7 +470,7 @@ class _TaskState extends State<Task> {
   //     data.isChecked = newvalue!;
   //   });
   // },
-                                        // )
+                                      // )
  Checkbox(
   value: data.isChecked,
   onChanged: (bool? newValue) {
@@ -483,128 +482,127 @@ class _TaskState extends State<Task> {
     updateTask(index, data);
   },
 )
-                                  ],
-                                ),
-                              ),
-
-                             const  SizedBox(
-
-
-                                height: 20,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-
-                                  const Padding(
-
-                                    padding: EdgeInsets.only(left: 0, top: 10),
-                                  ),
-                                  Container(
-                                      width: screenHeight * 0.1,
-                                      height: 40,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
-                                        border: Border.all(
-                                            color: Color.fromARGB(
-                                                255, 255, 255, 255)),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          '${data.weight} KG ',
-                                          style: TextStyle(fontSize: 19),
-                                        ),
-                                      )),
-                                  // SizedBox(
-                                  //   width: 17,
-                                  // ),
-                                  Container(
-                                      width: screenHeight * 0.14,
-                                      height: 40,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
-                                        border: Border.all(
-
-                                            color: const Color.fromARGB(
-
-
-                                                255, 255, 255, 255)),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          "${data.reps} REPS",
-                                          style: TextStyle(fontSize: 19),
-                                        ),
-                                      )),
-                                  // SizedBox(
-                                  //   width: 17,
-                                  // ),
-                                  Container(
-                                      width: screenHeight * 0.13,
-                                      height: 40,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
-                                        border: Border.all(
-
-                                            color: const Color.fromARGB(
-
-
-                                                255, 255, 255, 255)),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          " ${data.sets} SETS",
-                                          style: TextStyle(fontSize: 19),
-                                        ),
-                                      )),
                                 ],
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 35, top: 35),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      // print($)
-                                      DateFormat('yyyy-MM-dd')
-                                          .format(data.date ),
+                            ),
 
-                                      style: TextStyle(fontSize: 20),
-                                    ),
-                                    Text(data.duration ),
-                                  ],
+                           const  SizedBox(
+
+
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceEvenly,
+                              children: [
+
+                                const Padding(
+
+                                  padding: EdgeInsets.only(left: 0, top: 10),
                                 ),
+                                Container(
+                                    width: screenHeight * 0.1,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color:
+                                          Color.fromARGB(255, 255, 255, 255),
+                                      border: Border.all(
+                                          color: Color.fromARGB(
+                                              255, 255, 255, 255)),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        '${data.weight} KG ',
+                                        style: TextStyle(fontSize: 19),
+                                      ),
+                                    )),
+                                // SizedBox(
+                                //   width: 17,
+                                // ),
+                                Container(
+                                    width: screenHeight * 0.14,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color:
+                                          Color.fromARGB(255, 255, 255, 255),
+                                      border: Border.all(
+
+                                          color: const Color.fromARGB(
+
+
+                                              255, 255, 255, 255)),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "${data.reps} REPS",
+                                        style: TextStyle(fontSize: 19),
+                                      ),
+                                    )),
+                                // SizedBox(
+                                //   width: 17,
+                                // ),
+                                Container(
+                                    width: screenHeight * 0.14,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color:
+                                          Color.fromARGB(255, 255, 255, 255),
+                                      border: Border.all(
+
+                                          color: const Color.fromARGB(
+
+
+                                              255, 255, 255, 255)),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        " ${data.sets} SETS",
+                                        style: TextStyle(fontSize: 19),
+                                      ),
+                                    )),
+                              ],
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 35, top: 35),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    // print($)
+                                    DateFormat('yyyy-MM-dd')
+                                        .format(data.date ),
+
+                                    style: TextStyle(fontSize: 20),
+                                  ),
+                                  Text(data.duration ),
+                                ],
                               ),
-                            ],
-                          ),
-                          // color: Colors.green,
-                         
+                            ),
+                          ],
                         ),
+                        // color: Colors.green,
+                       
                       ),
                     ),
+                  ),
+                );
+                    },
+                    separatorBuilder: (cxt, index) {
+                      return const Divider(
+                        thickness: 1,
+                      );
+                    },
+                    itemCount: tasksToDisplay.length,
                   );
-                      },
-                      separatorBuilder: (cxt, index) {
-                        return const Divider(
-                          thickness: 1,
-                        );
-                      },
-                      itemCount: tasksToDisplay.length,
-                    );
-                  }
-                },
-              ),
+                }
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
